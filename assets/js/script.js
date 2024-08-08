@@ -55,10 +55,18 @@ async function currentWeather(location) {
     info[3].innerText = `Humidity: ${weather.hum} %`;
 };
 
+async function forecast(location) {
+    
+}
+
+function cityEntry(location) {
+    
+}
+
 submit.addEventListener('click', function (event) {
     event.preventDefault();
     currentWeather(input());
     forecast(input());
-    addEntries(input());
+    cityEntry(input());
 });
 
