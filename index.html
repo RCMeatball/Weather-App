@@ -11,16 +11,15 @@
         <h1 id="h1">5 Days of Weather!</h1>
     </header>
 
-    <right>
-        <div id="search">
-            <input id="citysearch" type="text" placeholder="City Name">
+    <section id="searchbar">
+        <div id="search" style="display: flex; justify-content: end;">
+            <input id="citysearch" type="text" placeholder="City Name" ">
             <button id="submitbtn">Search</button>
         </div>
-        <section id="history">Search History</section>
-    </right>
+    </section>
 
     <section id="weatherdisplay">
-        <section id="cityinfo">
+        <section id="cityinfo" style="display: flex; justify-content: center;">
             <ul>
                 <li id="city">City Name, Date, Status Icon</li>
                 <li>Temp</li>
@@ -28,43 +27,50 @@
                 <li>Wind</li>
             </ul>
         </section>
-        <section id="fiveday">
-            <ul>
+        <section id="fiveday" style="display: flex; justify-content: space-between; ">
+            <ul style="border-style: dashed; border-color: cadetblue">
                 <li style="font-style: italic; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-weight: bold;">Date</li>
+                <li><image>Status Icon</image></li>
                 <li>Temp</li>
                 <li>Humidity</li>
                 <li>Wind</li>
             </ul>
-            <ul>
+            <ul style="border-style: dashed; border-color: cadetblue">
                 <li style="font-style: italic; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-weight: bold;">Date</li>
+                <li><image>Status Icon</image></li>
                 <li>Temp</li>
                 <li>Humidity</li>
                 <li>Wind</li>
             </ul>
-            <ul>
+            <ul style="border-style: dashed; border-color: cadetblue">
                 <li style="font-style: italic; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-weight: bold;">Date</li>
+                <li><image>Status Icon</image></li>
                 <li>Temp</li>
                 <li>Humidity</li>
                 <li>Wind</li>
             </ul>
-            <ul>
+            <ul style="border-style: dashed; border-color: cadetblue">
                 <li style="font-style: italic; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-weight: bold;">Date</li>
+                <li><image>Status Icon</image></li>
                 <li>Temp</li>
                 <li>Humidity</li>
                 <li>Wind</li>
             </ul>
-            <ul>
+            <ul style="border-style: dashed; border-color: cadetblue">
                 <li style="font-style: italic; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-weight: bold;">Date</li>
+                <li><image>Status Icon</image></li>
                 <li>Temp</li>
                 <li>Humidity</li>
                 <li>Wind</li>
             </ul>
         </section>
     </section>
+
+    <section id="history">Search History</section>
      
 
     <script src="./assets/js/script.js"></script>
 </body>
 <footer id="footer">
-    <a href="https://www.flaticon.com/free-icons/weather" title="weather icons" style="color: cadetblue; display: flex; justify-content: end;">Weather icons created by Freepik - Flaticon</a>
+    <a href="https://www.flaticon.com/free-icons/weather" title="weather icons" style="color: cadetblue; display: flex; align-items: flex-end; margin-top:55% ;">Weather icons created by Freepik - Flaticon</a>
 </footer> 
