@@ -1,12 +1,12 @@
-const submit = document.getElementById('submitbtn');
+let submit = document.getElementById('submitbtn');
 const search = document.getElementById('citysearch');
-const api = await fetch('https://api.openweathermap.org/data/2.5/forecast?q=${location}&exclude=hourly,minutely&appid=031dcd1893a1738ddcd049b3a8d78675')
+const api = await fetch('https://api.openweathermap.org/data/2.5/forecast?q=${location}&appid=031dcd1893a1738ddcd049b3a8d78675')
 var history = JSON.parse(localStorage.getItem('history'));
 var styling = `width: 175px; height: 40px; border-radius: 40px: margin-top: 5%; font-family: Arial, Helvetica, sans-serif; color: darkmagenta; background-color: cadetblue;
 font-weight: bold: font-size:90%`
 
-if(history != null) {
-    for (i - 0; i < history.length; i++){
+if (history != null) {
+    for (i - 0; i < history.length; i++) {
         var display = document.getElementById('hsitory').appendChild(document.createElement('button'));
         display.setAttribute('style', styling);
         display.setAttribute('onclick', `{currentWeather('${cities[i]}'); forecastWeatherData('${cities[i]}');}`);
@@ -27,7 +27,7 @@ function input() {
 
 async function currentWeather(location) {
     const output = await api.json();
-    let date = new Date(output.dt *1000)
+    let date = new Date(output.dt * 1000)
     date = JSON.stringify(date);
     const weather = {
         date: "",
@@ -36,14 +36,14 @@ async function currentWeather(location) {
         wind: 0,
         humidity: 0
     };
-    
+
     let secondDate = '';
-    for (let i = 1; i < 11; i++){
+    for (let i = 1; i < 11; i++) {
         secondDate += date.charAt[i]
     };
     weather.date = secondDate;
     weather.icon = output.weather[0].icon;
-    weather.temp = Math.ceil((output.main.temp - 273.15) * 9/5 + 32);
+    weather.temp = Math.ceil((output.main.temp - 273.15) * 9 / 5 + 32);
     weather.wind = output.wind.speed;
     weather.hum = output.main.humidity;
     var info = document.querySelectorAll('section.cityinfo ul li');
@@ -60,10 +60,26 @@ async function forecast(location) {
 }
 
 function cityEntry(location) {
-    
+    if (history != null) {
+        cities.push(location);
+        var weather = document.getElementById('history').appendChild(document.createElement('button'));
+        weather.setAttribute('style', style);
+        weather.setAttribute('onclick', `{currentWeatherData('${cities[cities.length - 1]}'); forecastWeatherData('${cities[cities.length - 1]}');}`);
+        weather.innerHTML = `${cities[cities.length - 1]}`;
+        localStorage.setItem('cities', JSON.stringify(history));
+    } else {
+        var array = [];
+        array.push(location);
+        var weather = document.getElementById('history').appendChild(document.createElement('button'));
+        weather.setAttribute('style', style);
+        weather.setAttribute('onclick', `{currentWeatherData('${array[0]}'); forecastWeatherData('${array[0]}');}`);
+        weather.innerHTML = `${array[0]}`;
+        localStorage.setItem('history', JSON.stringify(array));
+    };
+    cities = JSON.parse(localStorage.getItem('history'));
 }
 
-submit.addEventListener('click', function (event) {
+submit.addEventListener('click', (event) => {
     event.preventDefault();
     currentWeather(input());
     forecast(input());
